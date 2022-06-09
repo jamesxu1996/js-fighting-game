@@ -76,6 +76,14 @@ const player = new Fighter({
 			framesMax: 6,
 		},
 	},
+    attackBox: {
+        offset: {
+            x: 100,
+            y: 50
+        },
+        width: 160,
+        height: 50
+    }
 });
 
 const enemy = new Fighter({
@@ -121,6 +129,14 @@ const enemy = new Fighter({
 			framesMax: 4,
 		},
 	},
+    attackBox: {
+        offset: {
+            x: -170,
+            y: 50
+        },
+        width: 170,
+        height: 50
+    }
 });
 
 // Set keys object to track press state of keys
@@ -197,25 +213,35 @@ function animate() {
 			rectangle1: player,
 			rectangle2: enemy,
 		}) &&
-		player.isAttacking
+		player.isAttacking && player.framesCurrent === 4
 	) {
 		player.isAttacking = false;
-		enemy.health -= 5;
+		enemy.health -= 7;
 		document.querySelector("#enemyHealth").style.width = enemy.health + "%";
 	}
+
+    // player attack miss
+    if (player.isAttacking && player.framesCurrent === 4) {
+        player.isAttacking = false;
+    }
 
 	if (
 		rectangularCollision({
 			rectangle1: enemy,
 			rectangle2: player,
 		}) &&
-		enemy.isAttacking
+		enemy.isAttacking && enemy.framesCurrent === 2
 	) {
 		enemy.isAttacking = false;
 		player.health -= 5;
 		document.querySelector("#playerHealth").style.width =
 			player.health + "%";
 	}
+
+    // enemy attack miss
+    if (enemy.isAttacking && enemy.framesCurrent === 2) {
+        enemy.isAttacking = false;
+    }
 
 	// Set win condition based on player HP
 	if (enemy.health <= 0 || player.health <= 0) {
