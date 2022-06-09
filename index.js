@@ -92,6 +92,35 @@ const enemy = new Fighter({
 		x: -50,
 		y: 0,
 	},
+	imageSrc: "./assets/kenji/Idle.png",
+	framesMax: 4,
+	scale: 2.5,
+	offset: {
+		x: 215,
+		y: 166,
+	},
+	sprites: {
+		idle: {
+			imageSrc: "./assets/kenji/Idle.png",
+			framesMax: 4,
+		},
+		run: {
+			imageSrc: "./assets/kenji/Run.png",
+			framesMax: 8,
+		},
+		jump: {
+			imageSrc: "./assets/kenji/Jump.png",
+			framesMax: 2,
+		},
+		fall: {
+			imageSrc: "./assets/kenji/Fall.png",
+			framesMax: 2,
+		},
+		attack1: {
+			imageSrc: "./assets/kenji/Attack1.png",
+			framesMax: 4,
+		},
+	},
 });
 
 // Set keys object to track press state of keys
@@ -120,7 +149,7 @@ function animate() {
 	background.update();
 	shop.update();
 	player.update();
-	// enemy.update();
+	enemy.update();
 
 	// Set default velocity for player and enemy at 0
 	player.velocity.x = 0;
@@ -147,8 +176,19 @@ function animate() {
 	// Enemy movement
 	if (keys.ArrowLeft.pressed && enemy.lastKey === "ArrowLeft") {
 		enemy.velocity.x = -5;
+		enemy.switchSprite("run");
 	} else if (keys.ArrowRight.pressed && enemy.lastKey === "ArrowRight") {
 		enemy.velocity.x = 5;
+		enemy.switchSprite("run");
+	} else {
+		enemy.switchSprite("idle");
+	}
+
+	// Enemy jump/fall movement
+	if (enemy.velocity.y < 0) {
+		enemy.switchSprite("jump");
+	} else if (enemy.velocity.y > 0) {
+		enemy.switchSprite("fall");
 	}
 
 	// Collision detection
@@ -198,8 +238,7 @@ window.addEventListener("keydown", (e) => {
 			player.lastKey = "a";
 			break;
 		case "w":
-			if (player.position.y == 330)
-			player.velocity.y = -20;
+			if (player.position.y == 330) player.velocity.y = -20;
 			break;
 		case " ":
 			player.attack();
@@ -215,11 +254,10 @@ window.addEventListener("keydown", (e) => {
 			enemy.lastKey = "ArrowLeft";
 			break;
 		case "ArrowUp":
-			if (enemy.position.y == 330)
-			enemy.velocity.y = -20;
+			if (enemy.position.y == 330) enemy.velocity.y = -20;
 			break;
 		case "ArrowDown":
-			enemy.isAttacking = true;
+			enemy.attack();
 			break;
 	}
 	console.log(e.key);
