@@ -3,6 +3,8 @@
 
 This game was developed following this tutorial by Chris Courses: https://www.youtube.com/watch?v=vyqbNFMDRGQ&ab_channel=ChrisCourses
 
+This game was developed using Javascript and HTML canvas.
+
 ## Overview
 This game is a traditional pixel-based 2d fighter. 2 players control their own character and fight until the timer runs out or HP is set to 0.
 
