@@ -12,6 +12,13 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
 	);
 }
 
+// Set function to reload game
+function reload() {
+	setTimeout(() => {
+		window.location.reload();
+	}, 5000);
+}
+
 // Set function to compare player and enemy HP
 function determineWinner({ player, enemy, timerId }) {
 	clearTimeout(timerId);
@@ -19,10 +26,13 @@ function determineWinner({ player, enemy, timerId }) {
 
 	if (player.health === enemy.health) {
 		document.querySelector("#displayText").innerHTML = "Draw!";
+		reload();
 	} else if (player.health > enemy.health) {
 		document.querySelector("#displayText").innerHTML = "Player 1 Wins!";
+		reload();
 	} else if (enemy.health > player.health) {
 		document.querySelector("#displayText").innerHTML = "Player 2 Wins!";
+		reload();
 	}
 }
 
