@@ -8,12 +8,12 @@ This game is a traditional pixel-based 2d fighter. 2 players control their own c
 
 ## Controls
 ### Player 1
--WASD to move
--Spacebar to attack
+- WASD to move
+- Spacebar to attack
 
 ### Player 2
--Arrow keys to move
--DownArrow to attack
+- Arrow keys to move
+- DownArrow to attack
 
 ### Bugfixes
 Changes have been made to polish the original code
