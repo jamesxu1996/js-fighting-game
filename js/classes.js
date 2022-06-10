@@ -154,7 +154,7 @@ class Fighter extends Sprite {
 			if (this.framesCurrent === this.sprites.death.framesMax - 1)
 				this.dead = true;
 			return;
-        } 
+		}
 
 		// override all animations with attack
 		if (
