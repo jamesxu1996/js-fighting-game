@@ -16,13 +16,12 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
 function reload() {
 	setTimeout(() => {
 		window.location.reload();
-	}, 5000);
+	}, 3000);
 }
 
 // Set function to compare player and enemy HP
 function determineWinner({ player, enemy, timerId }) {
 	clearTimeout(timerId);
-    clearTimeout(reload);
 	document.querySelector("#displayText").style.display = "flex";
 
 	if (player.health === enemy.health) {
@@ -35,6 +34,7 @@ function determineWinner({ player, enemy, timerId }) {
 		document.querySelector("#displayText").innerHTML = "Player 2 Wins!";
 		reload();
 	}
+    clearTimeout(reload);
 }
 
 // Set game timer
