@@ -14,16 +14,17 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
 
 // Set function to reload game
 function refresh() {
-	setTimeout(() => {
-		if (window.localStorage) {
-			if (!localStorage.getItem("reload")) {
-				localStorage["reload"] = true;
-				document.location.reload();
-			} else {
-				localStorage.removeItem("reload");
-			}
-		}
-	}, 1500);
+	// setTimeout(() => {
+	// 	if (window.localStorage) {
+	// 		if (!localStorage.getItem("reload")) {
+	// 			localStorage["reload"] = true;
+	// 			document.location.reload();
+	// 		} else {
+	// 			localStorage.removeItem("reload");
+	// 		}
+	// 	}
+	// }, 1500);
+	setTimeout("location.reload(true);", 1500);
 }
 
 // Set function to compare player and enemy HP
