@@ -18,13 +18,12 @@ function refresh() {
 		if (window.localStorage) {
 			if (!localStorage.getItem("reload")) {
 				localStorage["reload"] = true;
-				window.location.reload();
+				document.location.reload();
 			} else {
 				localStorage.removeItem("reload");
 			}
 		}
 	}, 1500);
-	window.stop()
 }
 
 // Set function to compare player and enemy HP
