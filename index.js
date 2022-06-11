@@ -269,6 +269,7 @@ function animate() {
 	// Set win condition based on player HP
 	if (enemy.health <= 0 || player.health <= 0) {
 		determineWinner({ player, enemy, timerId });
+		refresh()
 	}
 }
 

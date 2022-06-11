@@ -18,7 +18,7 @@ function refresh() {
 		if (window.localStorage) {
 			if (!localStorage.getItem("reload")) {
 				localStorage["reload"] = true;
-				window.location.reload(1);
+				window.location.reload();
 			} else {
 				localStorage.removeItem("reload");
 			}
@@ -33,13 +33,10 @@ function determineWinner({ player, enemy, timerId }) {
 
 	if (player.health === enemy.health) {
 		document.querySelector("#displayText").innerHTML = "Draw!";
-		refresh();
 	} else if (player.health > enemy.health) {
 		document.querySelector("#displayText").innerHTML = "Player 1 Wins!";
-		refresh();
 	} else if (enemy.health > player.health) {
 		document.querySelector("#displayText").innerHTML = "Player 2 Wins!";
-		refresh();
 	}
 }
 
@@ -57,5 +54,6 @@ function decreaseTimer() {
 	// Set win condition for player on highest HP when timer runs out
 	if (timer === 0) {
 		determineWinner({ player, enemy, timerId });
+		refresh()
 	}
 }
