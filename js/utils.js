@@ -24,6 +24,7 @@ function refresh() {
 			}
 		}
 	}, 1500);
+	window.stop()
 }
 
 // Set function to compare player and enemy HP
@@ -33,19 +34,13 @@ function determineWinner({ player, enemy, timerId }) {
 
 	if (player.health === enemy.health) {
 		document.querySelector("#displayText").innerHTML = "Draw!";
-		setTimeout(() => {
-			window.location.reload()
-		}, 1500);
+		refresh()
 	} else if (player.health > enemy.health) {
 		document.querySelector("#displayText").innerHTML = "Player 1 Wins!";
-		setTimeout(() => {
-			window.location.reload()
-		}, 1500);
+		refresh()
 	} else if (enemy.health > player.health) {
 		document.querySelector("#displayText").innerHTML = "Player 2 Wins!";
-		setTimeout(() => {
-			window.location.reload()
-		}, 1500);
+		refresh()
 	}
 }
 
