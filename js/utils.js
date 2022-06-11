@@ -15,9 +15,18 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
 // Set function to reload game
 function reload() {
 	setTimeout(() => {
-		window.location.reload();
-	}, 3000);
+        if (window.localStorage) {
+            if (!localStorage.getItem("reload")) {
+                localStorage["reload"] = true;
+                window.location.reload();
+            } else {
+                localStorage.removeItem("reload");
+            }
+        }
+	}, 3000)();
 }
+
+ 
 
 // Set function to compare player and enemy HP
 function determineWinner({ player, enemy, timerId }) {
@@ -34,7 +43,6 @@ function determineWinner({ player, enemy, timerId }) {
 		document.querySelector("#displayText").innerHTML = "Player 2 Wins!";
 		reload();
 	}
-    clearTimeout(reload);
 }
 
 // Set game timer
