@@ -14,17 +14,33 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
 
 // Set function to reload game
 function refresh() {
-	setTimeout(() => {
-		if (window.localStorage) {
-			if (!localStorage.getItem("reload")) {
-				localStorage["reload"] = true;
-				window.location.reload();
-			} else {
-				localStorage.removeItem("reload");
-			}
-		}
+	setTimeout(() => { reloadPage()
+		// if (window.localStorage) {
+		// 	if (!localStorage.getItem("reload")) {
+		// 		localStorage["reload"] = true;
+		// 		window.location.reload();
+		// 	} else {
+		// 		localStorage.removeItem("reload");
+		// 	}
+		// }
 	}, 1500);
 }
+
+function reloadPage() {
+	// The last "domLoading" Time //
+	var currentDocumentTimestamp =
+	new Date(performance.timing.domLoading).getTime();
+	// Current Time //
+	var now = Date.now();
+	// Ten Seconds //
+	var tenSec = 5 * 1000;
+	// Plus Ten Seconds //
+	var plusTenSec = currentDocumentTimestamp + tenSec;
+	if (now > plusTenSec) {
+	location.reload();
+	} else {}
+	}
+	reloadPage();
 
 // Set function to compare player and enemy HP
 function determineWinner({ player, enemy, timerId }) {
@@ -33,10 +49,13 @@ function determineWinner({ player, enemy, timerId }) {
 
 	if (player.health === enemy.health) {
 		document.querySelector("#displayText").innerHTML = "Draw!";
+		reloadPage()
 	} else if (player.health > enemy.health) {
 		document.querySelector("#displayText").innerHTML = "Player 1 Wins!";
+		reloadPage()
 	} else if (enemy.health > player.health) {
 		document.querySelector("#displayText").innerHTML = "Player 2 Wins!";
+		reloadPage()
 	}
 }
 
@@ -54,6 +73,5 @@ function decreaseTimer() {
 	// Set win condition for player on highest HP when timer runs out
 	if (timer === 0) {
 		determineWinner({ player, enemy, timerId });
-		refresh()
 	}
 }
