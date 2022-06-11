@@ -22,6 +22,7 @@ function reload() {
 // Set function to compare player and enemy HP
 function determineWinner({ player, enemy, timerId }) {
 	clearTimeout(timerId);
+    clearTimeout(reload);
 	document.querySelector("#displayText").style.display = "flex";
 
 	if (player.health === enemy.health) {
