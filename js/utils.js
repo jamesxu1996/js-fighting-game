@@ -19,11 +19,11 @@ function determineWinner({ player, enemy, timerId }) {
 	document.querySelector("#displayText").style.display = "flex";
 
 	if (player.health === enemy.health) {
-		document.querySelector("#displayText").innerHTML = "Draw!";
+		document.querySelector("#displayText").innerHTML = "Draw! Press Enter To Restart!";
 	} else if (player.health > enemy.health) {
-		document.querySelector("#displayText").innerHTML = "Player 1 Wins!";
+		document.querySelector("#displayText").innerHTML = "Player 1 Wins! Press Enter To Restart!";
 	} else if (enemy.health > player.health) {
-		document.querySelector("#displayText").innerHTML = "Player 2 Wins!";
+		document.querySelector("#displayText").innerHTML = "Player 2 Wins! Press Enter To Restart!";
 	}
 }
 
