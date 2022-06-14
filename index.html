@@ -7,6 +7,16 @@
             box-sizing: border-box;
             font-family: 'Press Start 2P', cursive;
         }
+
+        th, td {
+            border: 1px solid black;
+            padding: 3px;
+        }
+
+
+
+
+
     </style>
 </head>
 
@@ -39,10 +49,28 @@
             style="position: absolute; color: white; display: none; align-items: center; justify-content: center; top: 0; right: 0; bottom: 0; left: 0;">
             Tie
         </div>
+
         <canvas>
 
         </canvas>
     </div>
+    <table style = "position: relative; display: inline-block;">
+        <tr>
+            <th></th>
+            <th>Controls</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <th>Player 1</th>
+            <th>W, A, D, Spacebar</th>
+            <th>Jump, Move left/right, Attack</th>
+        </tr>
+        <tr>
+            <th>Player 2</th>
+            <th>UpArrow, LeftArrow, RightArrow, DownArrow</th>
+            <th>Jump, Move left/right, Attack</th>
+        </tr>
+    </table>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
