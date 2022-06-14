@@ -318,6 +318,12 @@ window.addEventListener("keydown", (e) => {
 });
 
 window.addEventListener("keyup", (e) => {
+	// Refresh on Enter keystroke
+	switch (e.key) {
+		case "Enter":
+		window.location.reload();
+	}
+
 	// Player Keystrokes
 	switch (e.key) {
 		case "d":
@@ -337,5 +343,5 @@ window.addEventListener("keyup", (e) => {
 			keys.ArrowLeft.pressed = false;
 			break;
 	}
-	console.log(e.key);
+
 });
