@@ -17,7 +17,8 @@ This game is a traditional pixel-based 2d fighter. 2 players control their own c
 - Arrow keys to move
 - DownArrow to attack
 
-### Bugfixes
+### Updates
 Changes have been made to polish the original code
 - Infinite jump removed
-- Automatic refreshing of game when timer runs out/a player dies (5 seconds)
+- Reload upon 'Enter' keypress
+- Added instructions ingame
